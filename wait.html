@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham </title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <link rel="stylesheet" href="./assets/wait.css">
+</head>
+<body>
+  <img src="./assets/bd-spin.gif" alt="">
+  <div class="container" >
+    <div class="day"></div>
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+  </div>
+  <script>
+    const calc = () => {
+      const targetTime = new Date('2024-12-09 00:00:00').valueOf()
+    const currentTime = new Date().valueOf()
+    const timeDiff = targetTime - currentTime
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000)
+    document.querySelector('.day').innerHTML = days + 'D'
+    document.querySelector('.hour').innerHTML = hours + 'H'
+    document.querySelector('.minute').innerHTML = minutes + 'M'
+    document.querySelector('.second').innerHTML = seconds + 'S'
+    }
+    setInterval(calc, 1000)
+  </script>
+</body>
+</html>
